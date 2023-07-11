@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task-7</title>
+</head>
+<body>
+    <h1>Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за: <br>
+        1)	за весь рік; <br>
+        2)	у першій половині року; <br>
+        3)	у другій половині року; <br>
+        4)	за літо; <br>
+        5)	за ІІ квартал; <br>
+        6)	за парні місяці (з парними номерами); <br>
+        7)	за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+    </h1>
+
+    <script>
+
+        // Вводимо дані
+        let payments = []
+        let paymentsSum = 0
+
+        // Знаходимо результат
+        for (let i = 0; i < 12; i++) {
+            let payment = parseFloat(0 + Math.floor(Math.random() * 1500))
+            payments.push(payment)
+            paymentsSum += payment
+        }
+
+        let firstSixMonth = 0
+        for (let i = 0; i < 6; i++) {
+            firstSixMonth += payments[i]
+        }
+
+        let lastSixMonth = 0
+        for (let i = 6; i < 12; i++) {
+            lastSixMonth += payments[i]
+        }
+
+        let summerMonth = 0
+        for (let i = 5; i < 8; i++) {
+            summerMonth += payments[i]
+        }
+
+        let secondQuarter = 0
+        for (let i = 3; i < 6; i++) {
+            secondQuarter += payments[i]
+        }
+
+        let evenMonth = 0
+        for (let i = 1; i < 12; i += 2) {
+            evenMonth += payments[i]
+        }
+
+        let firstMonthQuarter = 0
+        for (let i = 2; i < 12; i += 3) {
+            firstMonthQuarter += payments[i]
+        }
+
+        // Виводимо результат
+        document.write(`<h2>
+                1. Cумарна кількість грошей за рік: ${paymentsSum} <br>
+                2. У першій половині року: ${firstSixMonth} <br>
+                3. У другій половині року: ${lastSixMonth} <br>
+                4. За літо: ${summerMonth} <br>
+                5. За ІІ квартал: ${secondQuarter} <br>
+                6. За парні місяці (з парними номерами): ${evenMonth} <br>
+                7. За місяці, які є початковими у сезоні (весна, літо, осінь, зима): ${firstMonthQuarter}
+            </h2>`)
+
+    </script>
+</body>
+</html>

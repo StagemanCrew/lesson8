@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task-5</title>
+</head>
+<body>
+    <h1>Дано послідовність оцінок учня. Підрахувати кількість: <br>
+        1)	двійок <br>
+        2)	кількість хороших оцінок (добре, відмінно); <br>
+        3)	кількість оцінок, які нижче середнього.</h1>
+
+    <script>
+
+        function getGrades(grades) {
+            let lowGrade = 0
+            let midGrade = 0
+            let hiGrade = 0
+
+            for (let i = 0; i < grades.length; i++) {
+                if (grades[i] < 3) lowGrade++
+            }
+            for (let i = 0; i < grades.length; i++) {
+                if (grades[i] < 4) midGrade++
+            }
+            for (let i = 0; i < grades.length; i++) {
+                if (grades[i] >= 4) hiGrade++
+            }
+
+            document.write(`<h2>
+            Оцінки: ${grades}<br>
+            Ви маете ${lowGrade} двійки. <br>
+            Хороших оцінок: ${hiGrade} <br>
+            Oцінок нижче середнього: ${midGrade}
+            </h2>`)
+        }
+
+        let grades = [2, 3, 4, 5, 5, 4, 2, 3, 3]
+        getGrades(grades)
+
+    </script>
+</body>
+</html>

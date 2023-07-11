@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task-1</title>
+</head>
+<body>
+    <h1>Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).
+    </h1>
+
+    <script>
+        // Функція для обчислення середнього балу
+        function averageRating(ratings) {
+            let sum = 0;
+            for (let i = 0; i < ratings.length; i++) {
+                sum += ratings[i];
+            }
+            return sum / ratings.length;
+        }
+        // Функція для перевірки наявності оцінки "2"
+        function hasTwoGrade(ratings) {
+            for (let i = 0; i < ratings.length; i++) {
+                if (ratings[i] === 2) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        // Функція для перевірки наявності оцінки "3"
+        function hasThreeGrade(ratings) {
+            for (let i = 0; i < ratings.length; i++) {
+                if (ratings[i] === 3) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        // Функція для перевірки наявності оцінки "4"
+        function hasFourGrade(ratings) {
+            for (let i = 0; i < ratings.length; i++) {
+                if (ratings[i] === 4) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Отримуємо кількість предметів від користувача
+        let countItems = parseInt(prompt('Введіть кількість предметів:'));
+        // Отримуємо оцінки з кожного предмета
+        let ratings = [];
+        for (let j = 0; j < countItems; j++) {
+            let rating = parseInt(prompt('Введіть оцінку:'));
+            ratings.push(rating);
+        }
+    
+        // Визначаємо середній бал і категорію
+        let average = averageRating(ratings);
+        let hasTwo = hasTwoGrade(ratings);
+        let hasThree = hasThreeGrade(ratings);
+        let hasFour = hasFourGrade(ratings);
+
+        let result = "";
+        if (hasTwo) {
+            result = "двійочник (має одну двійку)";
+        } else if (hasThree) {
+            result = "трійочник (є одна трійка)";
+        } else if (hasFour) {
+            result = "хорошист (оцінки добре і відмінно)";
+        } else {
+            result = "відмінник";
+        }
+
+        // Виводимо результат
+        document.write(`<h2>Середній бал: ${average.toFixed(1)}<br>Категорія: ${result}</h2>`);
+
+    </script>
+
+</body>
+</html>
